@@ -64,3 +64,8 @@ $(document).ready(function() {
 		move();
 	});
 });
+
+$(document).ready(function(){
+	$('#nav').localScroll();
+});
+
