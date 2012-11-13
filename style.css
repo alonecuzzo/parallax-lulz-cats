@@ -6,7 +6,9 @@ body {
 	min-width: 980px;
 }
 
-
+#intro {
+	/* height: 300px; */
+}
 
 /* introduction copy */
 
@@ -27,10 +29,10 @@ body {
 	background:url('images/lolcats_text_4.png') 50% 0 no-repeat fixed;
 }
 
-/* make sure the height of the holding divs are the same and larger than than the actual text */
+/* the height of the div being controlled has to be greater or equal to the adjuster added to the the newPosition function   */
 #lolcats_text_holder {
 	width: 446px;
-	height: 500px;
+	height: 600px;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
@@ -39,7 +41,6 @@ body {
 .lolcats_text {
 	position: absolute;
 	width: 446px;
-	height: 500px;
-	padding-top: 145px;
+	height: 600px;
 }
 
