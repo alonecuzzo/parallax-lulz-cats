@@ -11,39 +11,11 @@ body {
 /* introduction copy */
 
 /* lolcats */
-#lolcats_first_l {
-	left: 0px;
+#lolcats-1, #lolcats-2 {
+	top: 259px;
+	width: 446px;
+	height: 125px;
+	margin-top: 300px;
 }
-#lolcats_first_o {
-	left: 33px;
-}
-#lolcats_second_l {
-	left: 105px;
-}
-#lolcats_first_c {
-	left: 136px;
-}
-#lolcats_first_a {
-	left: 203px;
-}
-#lolcats_first_t {
-	left: 271px;
-}
-#lolcats_first_s {
-	left: 316px;
-	position: fixed;
-}
-.lolcats_intro_text {
-	color: #fff;
-	font-size: 120px;
-	font-family: "arial";
-	font-weight: bold;
-	top: 20px;
-	/* position: fixed; */
-}
-.lolcats_intro_text_holder {
-	width: 400px;
-	display: block;
-	margin: auto;
-}
+
 
