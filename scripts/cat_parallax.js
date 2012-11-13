@@ -32,27 +32,27 @@ $(document).ready(function() {
 	function move(){
 		var pos = $window.scrollTop();
 
-		//letters for lolscats
-		if($lolscats_first_l.hasClass("inview")) {
-			$lolscats_first_l.css({'backgroundPosition' : newPosition(50, windowHeight, pos, 900, 0.2)});
+		//letters for lolcats
+		if($lolcats_first_l.hasClass("inview")) {
+			$lolcats_first_l.css({'backgroundPosition' : newPosition(50, windowHeight, pos, 900, 0.2)});
 		}
-		if($lolscats_first_o.hasClass("inview")) {
-			$lolscats_first_o.css({'backgroundPosition' : newPosition(50, windowHeight, pos, 900, 0.2)});
+		if($lolcats_first_o.hasClass("inview")) {
+			$lolcats_first_o.css({'backgroundPosition' : newPosition(50, windowHeight, pos, 900, 0.2)});
 		}
-		if($lolscats_second_l.hasClass("inview")) {
-			$lolscats_second_l.css({'backgroundPosition' : newPosition(50, windowHeight, pos, 900, 0.2)});
+		if($lolcats_second_l.hasClass("inview")) {
+			$lolcats_second_l.css({'backgroundPosition' : newPosition(50, windowHeight, pos, 900, 0.2)});
 		}
-		if($lolscats_first_c.hasClass("inview")) {
-			$lolscats_first_c.css({'backgroundPosition' : newPosition(50, windowHeight, pos, 900, 0.2)});
+		if($lolcats_first_c.hasClass("inview")) {
+			$lolcats_first_c.css({'backgroundPosition' : newPosition(50, windowHeight, pos, 900, 0.2)});
 		}
-		if($lolscats_first_a.hasClass("inview")) {
-			$lolscats_first_a.css({'backgroundPosition' : newPosition(50, windowHeight, pos, 900, 0.2)});
+		if($lolcats_first_a.hasClass("inview")) {
+			$lolcats_first_a.css({'backgroundPosition' : newPosition(50, windowHeight, pos, 900, 0.2)});
 		}
-		if($lolscats_first_t.hasClass("inview")) {
-			$lolscats_first_t.css({'backgroundPosition' : newPosition(50, windowHeight, pos, 900, 0.2)});
+		if($lolcats_first_t.hasClass("inview")) {
+			$lolcats_first_t.css({'backgroundPosition' : newPosition(50, windowHeight, pos, 900, 0.2)});
 		}
-		if($lolscats_first_s.hasClass("inview")) {
-			$lolscats_first_s.css({'backgroundPosition' : newPosition(50, windowHeight, pos, 900, 0.2)});
+		if($lolcats_first_s.hasClass("inview")) {
+			$lolcats_first_s.css({'backgroundPosition' : newPosition(50, windowHeight, pos, 900, 0.2)});
 		}
 	}
 				
