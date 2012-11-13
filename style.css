@@ -11,16 +11,18 @@ body {
 /* introduction copy */
 
 /* lolcats */
-#lolcats-1, #lolcats-2 {
-	top: 259px;
-	width: 446px;
-	height: 125px;
-	margin-top: 300px;
+#lolcats_text_1, #lolcats_text_2 {
+	position: absolute;
 }
 
 #lolcats_text_holder {
 	width: 446px;
 	display: block;
-	margin: auto;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+}
+
+.lolcats_text {
 }
 
