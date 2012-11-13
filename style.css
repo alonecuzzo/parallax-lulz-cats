@@ -31,16 +31,20 @@ body {
 
 /* the height of the div being controlled has to be greater or equal to the adjuster added to the the newPosition function   */
 #lolcats_text_holder {
-	width: 446px;
-	height: 600px;
-	display: block;
+	width: 1800px;
+	height: 1700px;
+	position: absolute;
+	/* display: block; */
 	margin-left: auto;
 	margin-right: auto;
+	/* THIS IS THE TARGET Y COORDINATE!!!! */
+	/* top:-400px; */
 }
 
 .lolcats_text {
 	position: absolute;
-	width: 446px;
-	height: 600px;
+	width: 100%;
+	height: 1000px;
 }
+
 

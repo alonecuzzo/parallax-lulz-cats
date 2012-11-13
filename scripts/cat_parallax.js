@@ -3,17 +3,20 @@
 $(document).ready(function() {
 	
 	var $window = $(window);
+	var windowHeight = $window.height();
 
 	//letters for lolcats
 	var $lolcats_text_1 = $('#lolcats_text_1'),
 	    $lolcats_text_2 = $('#lolcats_text_2'),
 	    $lolcats_text_3 = $('#lolcats_text_3'),
 	    $lolcats_text_4 = $('#lolcats_text_4'),
-	    speedDeltaLowerBound = -0.018,
-	    speedDeltaUpperBound = -0.013,
+	    speedDeltaLowerBound = -0.008,
+	    speedDeltaUpperBound = -0.003,
 	    base_lolcats_text_speed = 0.3,
-	    lolcats_text_adjuster = 500;
+	    lolcats_text_adjuster = 1100;
 	    round_to = 10000;
+	    
+	    console.log('adjuster: ' + lolcats_text_adjuster);
 
 	
 	var speedDelta1 = getRandomArbitrary(speedDeltaLowerBound, speedDeltaUpperBound);	
@@ -34,7 +37,6 @@ $(document).ready(function() {
 	
 	var $lolcats_text_holder = $('#lolcats_text_holder');
 
-	var windowHeight = $window.height();
 
 	//add inview class to stuff that's in the viewport
 	$('#lolcats_text_holder').bind('inview', function(event, visible) {
@@ -51,7 +53,7 @@ $(document).ready(function() {
 	function newPosition(x, windowHeight, pos, adjuster, inertia) {
 		var returnValue = x + "% " + (-((windowHeight + pos) - adjuster) * inertia) + "px";
 		// console.log('return value: ' + returnValue);
-		// console.log('inertia: ' + inertia);
+		console.log('inertia: ' + inertia);
 		return returnValue;
 	}
 	
