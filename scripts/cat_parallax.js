@@ -31,16 +31,16 @@ $(document).ready(function() {
 
 		//letters for lolcats
 		if($lolcats_text_1.hasClass("inview")) {
-			$lolcats_text_1.css({'backgroundPosition' : newPosition(50, windowHeight, pos, 900, 0.2)});
+			$lolcats_text_1.css({'backgroundPosition' : newPosition(50, windowHeight, pos, 900, 0.3)});
 		}
 		if($lolcats_text_2.hasClass("inview")) {
 			$lolcats_text_2.css({'backgroundPosition' : newPosition(50, windowHeight, pos, 900, 0.2)});
 		}
 		if($lolcats_text_3.hasClass("inview")) {
-			$lolcats_text_3.css({'backgroundPosition' : newPosition(50, windowHeight, pos, 900, 0.2)});
+			$lolcats_text_3.css({'backgroundPosition' : newPosition(50, windowHeight, pos, 900, 0.1)});
 		}
 		if($lolcats_text_4.hasClass("inview")) {
-			$lolcats_text_4.css({'backgroundPosition' : newPosition(50, windowHeight, pos, 900, 0.2)});
+			$lolcats_text_4.css({'backgroundPosition' : newPosition(50, windowHeight, pos, 900, 0.5)});
 		}
 	}
 				

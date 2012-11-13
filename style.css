@@ -11,8 +11,20 @@ body {
 /* introduction copy */
 
 /* lolcats */
-#lolcats_text_1, #lolcats_text_2, #lolcats_text_3, #lolcats_text_4 {
-	position: absolute;
+#lolcats_text_1 {
+	background:url('images/lolcats_text_1.png') 50% 0 no-repeat fixed;
+}
+
+#lolcats_text_2 {
+	background:url('images/lolcats_text_2.png') 50% 0 no-repeat fixed;
+}
+
+#lolcats_text_3 {
+	background:url('images/lolcats_text_3.png') 50% 0 no-repeat fixed;
+}
+
+#lolcats_text_4 {
+	background:url('images/lolcats_text_4.png') 50% 0 no-repeat fixed;
 }
 
 #lolcats_text_holder {
@@ -24,5 +36,8 @@ body {
 }
 
 .lolcats_text {
+	/* position: absolute; */
+	width: 446px;
+	height: 125px;
 }
 
