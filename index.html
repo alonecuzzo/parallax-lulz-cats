@@ -3,25 +3,38 @@
 <title>Parallax Lolcats</title>
 <link href="style.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript"  src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-<script type="text/javascript" src="scripts/Tween.js"></script>
+<script type="text/javascript" src="scripts/nbw-parallax.js"></script>
 <script type="text/javascript" src="scripts/jquery.localscroll-1.2.7-min.js"></script>
 <script type="text/javascript" src="scripts/jquery.scrollTo-1.4.2-min.js"></script>
-<script type="text/javascript" src="scripts/scrollAnimator.js"></script>
-<script type="text/javascript" src="scripts/cat_parallax.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+			$('#nav').localScroll();
+	})
+</script>
 </head>
 <body>
-	
-	<div id="main" role="main">
-		<img src="images/lolcats_text_1.png" id="lolcats-1" alt="" class="animated" />
-		<img src="images/lolcats_text_2.png" id="lolcats-2" alt="" class="animated" />
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed libero neque. Sed aliquam, purus eu auctor interdum, mi nisi cursus turpis, vel facilisis est metus non neque. Nulla eget euismod lorem. Curabitur pretium orci tempus diam ornare blandit. Nulla dapibus consectetur iaculis. Sed a leo sem, sed bibendum lectus. Pellentesque ut tortor ut neque consectetur accumsan quis id eros. Nulla facilisi. Sed interdum orci gravida erat venenatis volutpat. Nam facilisis congue tincidunt. Aenean eget nulla tortor, sed feugiat metus. In est nulla, convallis id tempor scelerisque, tempor a elit. Nam felis sem, scelerisque ac aliquam nec, pretium ac lacus. Quisque eu nibh tellus.
-
-Fusce libero metus, feugiat ut pulvinar varius, pellentesque hendrerit lacus. Aliquam turpis orci, scelerisque vitae eleifend non, consectetur ac elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rutrum, massa a consectetur semper, urna tellus fringilla orci, at viverra mi sem quis urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas diam ipsum, pulvinar vitae malesuada vitae, feugiat non urna. Donec varius tortor et eros dignissim ultrices.
-
-Praesent molestie, ipsum vel posuere placerat, neque libero auctor enim, nec porta urna leo in lorem. Vivamus gravida scelerisque congue. Nullam cursus bibendum euismod. Aliquam id dolor non diam consequat vulputate nec quis augue. Cras lorem nunc, gravida porttitor lacinia id, suscipit id magna. Donec in dolor dolor, sed pharetra elit. Curabitur a bibendum enim. Nunc ultricies varius odio quis rhoncus. Vivamus eget nunc neque. Nunc facilisis adipiscing nunc ut tristique. In euismod elit et diam cursus interdum. Aenean eu diam diam, vitae dapibus arcu. Vestibulum a fringilla neque.
-
-Etiam pretium dolor est, at consequat nunc. Nunc ullamcorper, velit vel commodo lacinia, sapien lectus pellentesque dolor, sit amet feugiat turpis sem a elit. Mauris cursus, augue pharetra venenatis suscipit, arcu sapien sodales mauris, consectetur vulputate quam felis eu sapien. Aenean et nibh id leo sollicitudin posuere id ut nisi. Morbi eget orci eros, ut iaculis lectus. Suspendisse fermentum lacinia posuere. Nulla adipiscing tempor nisi eget ornare. Sed sed turpis velit, et malesuada lacus. Curabitur aliquam mi vitae metus aliquam quis porta urna dictum. Morbi magna ligula, blandit a bibendum venenatis, condimentum ac justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent adipiscing mollis faucibus. Suspendisse vestibulum leo ut sem sollicitudin vulputate. Duis blandit nisi id libero varius in porta erat congue. Vivamus at massa sed orci interdum sodales. Nulla facilis</p>
-	</div>
+	<ul id="nav">
+	        <li>
+	                <a href="#intro" title="Next Section">
+	                        <img src="images/dot.png" alt="Link" />
+	                </a>
+	        </li>
+	        <li>
+	                <a href="#second" title="Next Section">
+	                        <img src="images/dot.png" alt="Link" />
+	                </a>
+	        </li>
+	        <li>
+	                <a href="#third" title="Next Section">
+	                        <img src="images/dot.png" alt="Link" />
+	                </a>
+	        </li>
+	        <li>
+	                <a href="#fourth" title="Next Section">
+	                        <img src="images/dot.png" alt="Link" />
+	                </a>
+	        </li>
+	</ul>
 </body>
 </html>
 
