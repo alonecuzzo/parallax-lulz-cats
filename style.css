@@ -18,4 +18,9 @@ body {
 	margin-top: 300px;
 }
 
+#lolcats_text_holder {
+	width: 446px;
+	display: block;
+	margin: auto;
+}
 
