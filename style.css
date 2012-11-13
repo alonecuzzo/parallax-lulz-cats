@@ -27,17 +27,19 @@ body {
 	background:url('images/lolcats_text_4.png') 50% 0 no-repeat fixed;
 }
 
+/* make sure the height of the holding divs are the same and larger than than the actual text */
 #lolcats_text_holder {
 	width: 446px;
+	height: 500px;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 50px;
 }
 
 .lolcats_text {
 	position: absolute;
 	width: 446px;
-	height: 125px;
+	height: 500px;
+	padding-top: 145px;
 }
 
