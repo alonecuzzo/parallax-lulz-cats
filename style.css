@@ -42,12 +42,14 @@ body {
 	/* THIS IS THE TARGET Y COORDINATE!!!! */
 	/* top:-400px; */
 	display: none;
+	overflow-x: hidden;
 }
 
 .lolcats_text {
 	position: absolute;
 	width: 100%;
 	height: 1100px;
+	overflow-x: hidden;
 }
 
 
