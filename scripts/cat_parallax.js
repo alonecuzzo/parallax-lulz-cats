@@ -12,7 +12,7 @@ var init = function() {
 	    // to adjust height of intro text, and point of disappearing,
 	    // play with the text speed, the adjuster, and the containing 
 	    // div class and id heights!!!!
-	    base_lolcats_text_speed = 0.1,
+	    base_lolcats_text_speed = 0.7,
 	    lolcats_text_adjuster = 1000,
 	    prevY1, prevY2, prevY3, prevY4 = -100000,
 	    round_to = 10000;
@@ -58,7 +58,7 @@ var init = function() {
 	//move the div to its new position
 	function newPosition(x, windowHeight, pos, adjuster, inertia, div) {
 		var newY = -((windowHeight + pos) - adjuster) * inertia;
-		var scaleBy = Math.round(((80 + windowHeight - newY) / windowHeight) * 100) / 100;
+		var scaleBy = Math.round(((280 + windowHeight - newY) / windowHeight) * 100) / 100;
 		if(scaleBy > 1){
 			scaleBy = 1;
 		}
@@ -119,17 +119,17 @@ var init = function() {
 	function repositionVerticalElements(){
 		//need to reposition bottom break to always be x number of pixels shorter than the window height
 		var windowHeight = $(window).height();
-		if(windowHeight > 550){
+		if(windowHeight > 350){
 			var lolcats_text_window_height_ratio = (windowHeight / $('.lolcats_text').height());
 			var lolcats_text_height = $lolcats_text.height();
-			var new_lolcats_text_height =  ((windowHeight + 700) / lolcats_text_window_height_ratio) * lolcats_text_window_height_ratio;
+			var new_lolcats_text_height =  ((windowHeight + 900) / lolcats_text_window_height_ratio) * lolcats_text_window_height_ratio;
 			$lolcats_text.height(new_lolcats_text_height);
 			// $lolcats_text.css({'backgroundColor' : 'red'});
 			console.log('new_lolcats_text_height: ' + new_lolcats_text_height);
 			console.log('window height inside vert: ' + windowHeight);
 			console.log('lolcats ratio: ' + lolcats_text_window_height_ratio);
-			var new_lolcats_text_holder_height = $lolcats_text.height() + (lolcats_text_window_height_ratio * 250);
-			lolcats_text_adjuster = ($lolcats_text.height() + 185) * lolcats_text_window_height_ratio;
+			var new_lolcats_text_holder_height = $lolcats_text.height() + (lolcats_text_window_height_ratio * 450);
+			lolcats_text_adjuster = ($lolcats_text.height() + 385) * lolcats_text_window_height_ratio;
 	
 			$lolcats_text_holder.css({'height' : new_lolcats_text_holder_height + 'px'});
 			console.log('window height: ' + windowHeight);
@@ -150,10 +150,11 @@ var init = function() {
 	});
 
 	repositionVerticalElements();
+	move();
 };
 
 $(document).ready(function() {
-	
+	init();	
 	var lockScrollTop = function() {
 		$(window).scrollTop(0);
 	};
@@ -163,6 +164,6 @@ $(document).ready(function() {
 
 	$('#lolcats_text_holder').fadeIn(3000, function(){
 		$(window).unbind('scroll', lockScrollTop);
-		init();
+		//init();
 	});
 });
