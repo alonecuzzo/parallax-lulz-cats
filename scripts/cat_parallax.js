@@ -1,7 +1,4 @@
-
-
-$(document).ready(function() {
-	
+var init = function() {	
 	var $window = $(window);
 	var windowHeight = $window.height();
 
@@ -12,8 +9,11 @@ $(document).ready(function() {
 	    $lolcats_text_4 = $('#lolcats_text_4'),
 	    speedDeltaLowerBound = -0.008,
 	    speedDeltaUpperBound = -0.003,
-	    base_lolcats_text_speed = 0.3,
-	    lolcats_text_adjuster = 1100;
+	    // to adjust height of intro text, and point of disappearing,
+	    // play with the text speed, the adjuster, and the containing 
+	    // div class and id heights!!!!
+	    base_lolcats_text_speed = 0.1,
+	    lolcats_text_adjuster = 1000,
 	    round_to = 10000;
 	    
 	    console.log('adjuster: ' + lolcats_text_adjuster);
@@ -35,7 +35,9 @@ $(document).ready(function() {
 	console.log('speed delta 3: ' + speedDelta3);
 	console.log('speed delta 4: ' + speedDelta4);
 	
-	var $lolcats_text_holder = $('#lolcats_text_holder');
+	var $lolcats_text_holder = $('#lolcats_text_holder'),
+	    $lolcats_text = $('.lolcats_text'),
+	    lolcats_text_window_height_ratio = windowHeight / $lolcats_text.height();
 
 
 	//add inview class to stuff that's in the viewport
@@ -45,7 +47,7 @@ $(document).ready(function() {
 			} else {
 				$(this).removeClass("inview");
 			}
-			console.log("text holder is: " + visible);
+			// console.log("text holder is: " + visible);
 
 	});
 	
@@ -53,7 +55,7 @@ $(document).ready(function() {
 	function newPosition(x, windowHeight, pos, adjuster, inertia) {
 		var returnValue = x + "% " + (-((windowHeight + pos) - adjuster) * inertia) + "px";
 		// console.log('return value: ' + returnValue);
-		console.log('inertia: ' + inertia);
+		// console.log('inertia: ' + inertia);
 		return returnValue;
 	}
 	
@@ -61,11 +63,11 @@ $(document).ready(function() {
 	function move(){
 		// var windowHeight = $window.height();
 		var pos = $window.scrollTop();
-		console.log('scroll top is: ' + pos);
+		console.log('text adjuster: ' + lolcats_text_adjuster);
+		// console.log('scroll top is: ' + pos);
 		//lolcats intro text
 		if($lolcats_text_holder.hasClass("inview")) {
 			// console.log("should be calling newPosition");
-			// $lolcats_text_1.css({'backgroundPosition' : newPosition(50, windowHeight, pos, 900, ((base_lolcats_text_speed + (pos * speedDelta1)) > (8 * (base_lolcats_text_speed + (pos * speedDelta1)))) ? base_lolcats_text_speed : (base_lolcats_text_speed + (pos * speedDelta1)))});
 			$lolcats_text_1.css({'backgroundPosition' : newPosition(50, windowHeight, pos, lolcats_text_adjuster, (base_lolcats_text_speed + (pos * speedDelta1)))});
 			$lolcats_text_2.css({'backgroundPosition' : newPosition(50, windowHeight, pos, lolcats_text_adjuster, (base_lolcats_text_speed + (pos * speedDelta2)))});
 			$lolcats_text_3.css({'backgroundPosition' : newPosition(50, windowHeight, pos, lolcats_text_adjuster, (base_lolcats_text_speed + (pos * speedDelta3)))});
@@ -79,12 +81,48 @@ $(document).ready(function() {
 	function getRandomArbitrary (min, max) {
     		return Math.random() * (max - min) + min;
 	}
+
+	function repositionVerticalElements(){
+		//need to reposition bottom break to always be x number of pixels shorter than the window height
+		var windowHeight = $(window).height();
+		var lolcats_text_window_height_ratio = (windowHeight / $('.lolcats_text').height());
+		var lolcats_text_height = $lolcats_text.height();
+		var new_lolcats_text_height =  ((windowHeight + 200) / lolcats_text_window_height_ratio) * lolcats_text_window_height_ratio;
+		$lolcats_text.height(new_lolcats_text_height);
+		// $lolcats_text.css({'backgroundColor' : 'red'});
+		console.log('new_lolcats_text_height: ' + new_lolcats_text_height);
+		console.log('window height inside vert: ' + windowHeight);
+		console.log('lolcats ratio: ' + lolcats_text_window_height_ratio);
+		var new_lolcats_text_holder_height = $lolcats_text.height() + (lolcats_text_window_height_ratio * 200);
+		lolcats_text_adjuster = $lolcats_text.height() - (lolcats_text_window_height_ratio * 85);
+
+		$lolcats_text_holder.css({'height' : new_lolcats_text_holder_height + 'px'});
+		console.log('window height: ' + windowHeight);
+		console.log('');
+	}
+
 				
 	$window.resize(function(){
+		repositionVerticalElements();
 		move();
 	});
 
 	$window.bind('scroll', function(){
 		move();
+	});
+};
+
+$(document).ready(function() {
+	
+	var lockScrollTop = function() {
+		$(window).scrollTop(0);
+	};
+	
+	// force window not to scroll
+	$(window).bind('scroll', lockScrollTop);	
+
+	$('#lolcats_text_holder').fadeIn(3000, function(){
+		$(window).unbind('scroll', lockScrollTop);
+		init();
 	});
 });
