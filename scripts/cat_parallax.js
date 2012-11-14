@@ -95,6 +95,7 @@ var init = function() {
 	//called whenever window is scrolled
 	function move(){
 		// var windowHeight = $window.height();
+		$window.scrollLeft(0);
 		var pos = $window.scrollTop();
 		// console.log('text adjuster: ' + lolcats_text_adjuster);
 		// console.log('scroll top is: ' + pos);
@@ -149,7 +150,6 @@ var init = function() {
 	});
 
 	repositionVerticalElements();
-	document.documentElement.style.overflowX = 'hidden';  // firefox, chrome
 };
 
 $(document).ready(function() {
