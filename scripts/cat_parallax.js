@@ -85,20 +85,24 @@ var init = function() {
 	function repositionVerticalElements(){
 		//need to reposition bottom break to always be x number of pixels shorter than the window height
 		var windowHeight = $(window).height();
-		var lolcats_text_window_height_ratio = (windowHeight / $('.lolcats_text').height());
-		var lolcats_text_height = $lolcats_text.height();
-		var new_lolcats_text_height =  ((windowHeight + 200) / lolcats_text_window_height_ratio) * lolcats_text_window_height_ratio;
-		$lolcats_text.height(new_lolcats_text_height);
-		// $lolcats_text.css({'backgroundColor' : 'red'});
-		console.log('new_lolcats_text_height: ' + new_lolcats_text_height);
-		console.log('window height inside vert: ' + windowHeight);
-		console.log('lolcats ratio: ' + lolcats_text_window_height_ratio);
-		var new_lolcats_text_holder_height = $lolcats_text.height() + (lolcats_text_window_height_ratio * 200);
-		lolcats_text_adjuster = $lolcats_text.height() - (lolcats_text_window_height_ratio * 85);
+		if(windowHeight > 550){
+			var lolcats_text_window_height_ratio = (windowHeight / $('.lolcats_text').height());
+			var lolcats_text_height = $lolcats_text.height();
+			var new_lolcats_text_height =  ((windowHeight + 400) / lolcats_text_window_height_ratio) * lolcats_text_window_height_ratio;
+			$lolcats_text.height(new_lolcats_text_height);
+			// $lolcats_text.css({'backgroundColor' : 'red'});
+			console.log('new_lolcats_text_height: ' + new_lolcats_text_height);
+			console.log('window height inside vert: ' + windowHeight);
+			console.log('lolcats ratio: ' + lolcats_text_window_height_ratio);
+			var new_lolcats_text_holder_height = $lolcats_text.height() + (lolcats_text_window_height_ratio * 250);
+			lolcats_text_adjuster = ($lolcats_text.height() + 185) * lolcats_text_window_height_ratio;
+	
+			$lolcats_text_holder.css({'height' : new_lolcats_text_holder_height + 'px'});
+			console.log('window height: ' + windowHeight);
+			console.log('');
+		}
 
-		$lolcats_text_holder.css({'height' : new_lolcats_text_holder_height + 'px'});
 		console.log('window height: ' + windowHeight);
-		console.log('');
 	}
 
 				
@@ -110,6 +114,8 @@ var init = function() {
 	$window.bind('scroll', function(){
 		move();
 	});
+
+	repositionVerticalElements();
 };
 
 $(document).ready(function() {
