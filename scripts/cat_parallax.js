@@ -25,12 +25,12 @@ var init = function() {
 
 	//round deltas
 	speedDelta1 = Math.round(round_to*speedDelta1) / round_to;
-	speedDelta2 = Math.round(round_to*speedDelta2) / round_to;
+	speedDelta2 = -Math.round(round_to*speedDelta2) / round_to;
 	speedDelta3 = Math.round(round_to*speedDelta3) / round_to;
-	speedDelta4 = Math.round(round_to*speedDelta4) / round_to;
+	speedDelta4 = -Math.round(round_to*speedDelta4) / round_to;
 	
 	//add inview class to stuff that's in the viewport
-	$('.lolcats_text_1').bind('inview', function(event, visible) {
+	$('#lolcats_text_1').bind('inview', function(event, visible) {
 			if(visible == true) {
 				$(this).addClass("inview");
 			} else {
@@ -61,7 +61,7 @@ var init = function() {
 		var pos = $window.scrollTop();
 		 // console.log('scroll top is: ' + pos);
 		//lolcats intro text
-		// if($('.lolcats_text_section').hasClass("inview")) {
+		 if($('#lolcats_text_1').hasClass("inview")) {
 			// console.log("should be calling newPosition");
 			// $lolcats_text_1.css({'backgroundPosition' : newPosition(50, windowHeight, pos, lolcats_text_adjuster, (base_lolcats_text_speed + (pos * speedDelta1)), $lolcats_text_1)});
 			// $lolcats_text_2.css({'backgroundPosition' : newPosition(50, windowHeight, pos, lolcats_text_adjuster, (base_lolcats_text_speed + (pos * speedDelta2)), $lolcats_text_2)});
@@ -72,7 +72,7 @@ var init = function() {
 			$lolcats_text_3.css({'margin-top' : newPosition(50, windowHeight, pos, lolcats_text_adjuster, (base_lolcats_text_speed + (pos * speedDelta3)), $lolcats_text_3)});
 			$lolcats_text_4.css({'margin-top' : newPosition(50, windowHeight, pos, lolcats_text_adjuster, (base_lolcats_text_speed + (pos * speedDelta4)), $lolcats_text_4)});
 
-		// }
+		 }
 	}
 
 	/**
@@ -95,6 +95,7 @@ var init = function() {
 
 $(document).ready(function() {
 	// here until we figure out how to get height adjustment set
+	$(window).scrollTop(0);
 	 init();	
 	// var lockScrollTop = function() {
 	// 	$(window).scrollTop(0);
