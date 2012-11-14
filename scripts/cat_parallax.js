@@ -12,7 +12,7 @@ var init = function() {
 	    // to adjust height of intro text, and point of disappearing,
 	    // play with the text speed, the adjuster, and the containing 
 	    // div class and id heights!!!!
-	    base_lolcats_text_speed = 0.3;
+	    base_lolcats_text_speed = 0.0;
 	    lolcats_text_adjuster = 1000,
 	    round_to = 10000;
 	    
