@@ -7,8 +7,8 @@ var init = function() {
 	    $lolcats_text_2 = $('#lolcats_text_2'),
 	    $lolcats_text_3 = $('#lolcats_text_3'),
 	    $lolcats_text_4 = $('#lolcats_text_4'),
-	    speedDeltaLowerBound = 0.008,
-	    speedDeltaUpperBound = 0.003,
+	    speedDeltaLowerBound = 0.004,
+	    speedDeltaUpperBound = 0.001,
 	    // to adjust height of intro text, and point of disappearing,
 	    // play with the text speed, the adjuster, and the containing 
 	    // div class and id heights!!!!
@@ -30,7 +30,7 @@ var init = function() {
 	speedDelta4 = -Math.round(round_to*speedDelta4) / round_to;
 	
 	//add inview class to stuff that's in the viewport
-	$('#lolcats_text_1').bind('inview', function(event, visible) {
+	$('#lolcats_text_1, #lolcats_text_2, #lolcats_text_3, #lolcats_text_4').bind('inview', function(event, visible) {
 			if(visible == true) {
 				$(this).addClass("inview");
 			} else {
@@ -63,15 +63,16 @@ var init = function() {
 		//lolcats intro text
 		 if($('#lolcats_text_1').hasClass("inview")) {
 			// console.log("should be calling newPosition");
-			// $lolcats_text_1.css({'backgroundPosition' : newPosition(50, windowHeight, pos, lolcats_text_adjuster, (base_lolcats_text_speed + (pos * speedDelta1)), $lolcats_text_1)});
-			// $lolcats_text_2.css({'backgroundPosition' : newPosition(50, windowHeight, pos, lolcats_text_adjuster, (base_lolcats_text_speed + (pos * speedDelta2)), $lolcats_text_2)});
-			// $lolcats_text_3.css({'backgroundPosition' : newPosition(50, windowHeight, pos, lolcats_text_adjuster, (base_lolcats_text_speed + (pos * speedDelta3)), $lolcats_text_3)});
-			// $lolcats_text_4.css({'backgroundPosition' : newPosition(50, windowHeight, pos, lolcats_text_adjuster, (base_lolcats_text_speed + (pos * speedDelta4)), $lolcats_text_4)});
 			$lolcats_text_1.css({'margin-top' : newPosition(50, windowHeight, pos, lolcats_text_adjuster, (base_lolcats_text_speed + (pos * speedDelta1)), $lolcats_text_1)});
+		 }
+		 if($('#lolcats_text_2').hasClass("inview")) {
 			$lolcats_text_2.css({'margin-top' : newPosition(50, windowHeight, pos, lolcats_text_adjuster, (base_lolcats_text_speed + (pos * speedDelta2)), $lolcats_text_2)});
+		 }
+		 if($('#lolcats_text_3').hasClass("inview")) {
 			$lolcats_text_3.css({'margin-top' : newPosition(50, windowHeight, pos, lolcats_text_adjuster, (base_lolcats_text_speed + (pos * speedDelta3)), $lolcats_text_3)});
+		 }
+		 if($('#lolcats_text_4').hasClass("inview")) {
 			$lolcats_text_4.css({'margin-top' : newPosition(50, windowHeight, pos, lolcats_text_adjuster, (base_lolcats_text_speed + (pos * speedDelta4)), $lolcats_text_4)});
-
 		 }
 	}
 
