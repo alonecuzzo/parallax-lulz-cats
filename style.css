@@ -5,6 +5,7 @@ body {
 	padding: 0;
 	min-width: 980px;
 	height: 2300px;
+	overflow-x: hidden;
 }
 
 #intro {
