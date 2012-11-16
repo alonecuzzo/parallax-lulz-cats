@@ -96,17 +96,15 @@ var init = function() {
 
 $(document).ready(function() {
 	// here until we figure out how to get height adjustment set
-	$(window).scrollTop(0);
-	 init();	
-	// var lockScrollTop = function() {
-	// 	$(window).scrollTop(0);
-	// };
-	// 
-	// // force window not to scroll
-	// $(window).bind('scroll', lockScrollTop);	
+	var lockScrollTop = function() {
+		$(window).scrollTop(0);
+	};
+	
+	// force window not to scroll
+	$(window).bind('scroll', lockScrollTop);	
 
-	// $('.lolcats_text').fadeIn(3000, function(){
-	// 	$(window).unbind('scroll', lockScrollTop);
-	// 	//init();
-	// });
+	$('.lolcats_text_section').fadeIn(1000, function(){
+		$(window).unbind('scroll', lockScrollTop);
+		init();
+	});
 });

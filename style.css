@@ -24,3 +24,19 @@ body {
    margin-top: -63px;
 }
 
+.lolcats_text_section {
+	display: none;
+}
+
+/* presented in */
+.presented_in_text {
+	position: absolute;
+}
+
+.presented_in_text_center {
+
+}
+
+.presented_in_text_section {
+
+}
