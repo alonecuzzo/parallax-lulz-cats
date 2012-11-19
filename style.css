@@ -3,7 +3,7 @@ body {
 	background-color: #000;
 	margin: 0;
 	padding: 0;
-	height: 2300px;
+	height: 4300px;
 	overflow-x: hidden;
 }
 
@@ -12,16 +12,19 @@ body {
 /* lolcats */
 .lolcats_text {
 	position: absolute;
+	border-style: solid;
+	border-width: 1px;
+	border-color: green;
 }
 
 .lolcats_text_center {
-   width: 466px;
-   height: 125px;
-   position: absolute;
-   left: 50%;
-   top: 50%; 
-   margin-left: -233px;
-   margin-top: -63px;
+   	width: 466px;
+  	height: 125px;
+ 	position: absolute;
+   	left: 50%;
+   	top: 50%; 
+   	margin-left: -233px;
+	margin-top: -63px;
 }
 
 .lolcats_text_section {
@@ -33,10 +36,21 @@ body {
 	position: absolute;
 }
 
-.presented_in_text_center {
+.presented_in_text img {
+	border-style: solid;
+	border-width: 1px;
+	border-color: red;
+}
 
+.presented_in_text_center {
+   	width: 466px;
+   	height: 125px;
+   	position: absolute;
+   	left: 50%;
+   	margin-left: -233px;
+	margin-top: 1300px;
 }
 
 .presented_in_text_section {
-
+	display: block;	
 }
