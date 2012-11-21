@@ -48,9 +48,10 @@ body {
    	position: absolute;
    	left: 50%;
    	margin-left: -233px;
-	margin-top: 1300px;
+	/* margin-top: 1300px; */
 }
 
 .presented_in_text_section {
 	display: block;	
+	margin-top: 1300px;
 }

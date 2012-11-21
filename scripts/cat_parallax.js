@@ -14,16 +14,16 @@ var init = function() {
 	    $presented_in_text_4 = $('#presented_in_text_4'),
 	    $presented_in_text_section = $('.presented_in_text_section'),
 	    $presented_in_text_center = $('.presented_in_text_center'),
-	    speedDeltaLowerBound = 0.00,
+	    speedDeltaLowerBound = 0.002,
 	    speedDeltaUpperBound = 0.001,
 	    // to adjust height of intro text, and point of disappearing,
 	    // play with the text speed, the adjuster, and the containing 
 	    // div class and id heights!!!!
-	    base_lolcats_text_speed = 0.0;
+	    base_lolcats_text_speed = 0.001;
 		// let's put a cap on the inertia, it seems to be growing too large
 		inertia_cap = 2.52;
 	    lolcats_text_adjuster = 0,
-	    presented_in_text_adjuster = 100,
+	    presented_in_text_adjuster = 1300,
 	    round_to = 10000;
 	    
 	    // console.log('adjuster: ' + lolcats_text_adjuster);
@@ -51,17 +51,34 @@ var init = function() {
 
 	});
 	
+	// test function to use new easing function
+	function easeDiv($div, easing){
+		//need div to compare current y to create next y
+		var currentY = Math.round(parseFloat($div.css('margin-top').replace('px', '')) * 10) / 10;
+			targetY = 500; //should be north of the window top
+
+		//need to get the direction to determine targetY, if they're scrolling down then the target is 0, and if they're going some number above the screen etc
+
+		var vy = -(targetY - currentY) * easing,
+			newY = currentY + vy;
+		console.log($div.attr('id') + ': ' + ', newY: ' + newY);
+		return newY + 'px';
+	}
+
 	//move the div to its new position
 	function newPosition(x, windowHeight, pos, adjuster, inertia) {
 		// var adjuster1 = adjuster + (windowHeight);
 		// adjuster1 = 0;
 		// console.log('adjuster position: ' + adjuster1);
+		if(adjuster > 0) {
+
+		}
 		if(Math.abs(inertia) > inertia_cap) {
 			inertia = -inertia_cap;
 		}
 		var newY = -((windowHeight - pos) - adjuster) * inertia;
-		// newY = Math.abs(newY);
-		console.log('inertia ' + inertia);
+		newY = -Math.abs(newY);
+		// console.log('inertia ' + inertia);
 		// var returnValue = x + "% " + newY + "px";
 		var returnValue = newY + "px";
 		// console.log('return value: ' + returnValue);
@@ -77,11 +94,13 @@ var init = function() {
 		//lolcats intro text
 		 if($('#lolcats_text_1').hasClass("inview")) {
 			// console.log("should be calling newPosition");
-			$lolcats_text_1.css({'margin-top' : newPosition(50, windowHeight, pos, lolcats_text_adjuster, (base_lolcats_text_speed + (pos * speedDelta1)))});
+			// $lolcats_text_1.css({'margin-top' : newPosition(50, windowHeight, pos, lolcats_text_adjuster, (base_lolcats_text_speed + (pos * speedDelta1)))});
+			$lolcats_text_1.css({'margin-top' : easeDiv($lolcats_text_1, .001)});
 			printTopHeight($lolcats_text_1);
 		 }
 		 if($('#lolcats_text_2').hasClass("inview")) {
-			$lolcats_text_2.css({'margin-top' : newPosition(50, windowHeight, pos, lolcats_text_adjuster, (base_lolcats_text_speed + (pos * speedDelta2)))});
+			// $lolcats_text_2.css({'margin-top' : newPosition(50, windowHeight, pos, lolcats_text_adjuster, (base_lolcats_text_speed + (pos * speedDelta2)))});
+			$lolcats_text_2.css({'margin-top' : easeDiv($lolcats_text_2, .002)});
 			printTopHeight($lolcats_text_2);
 		 }
 		 if($('#lolcats_text_3').hasClass("inview")) {
@@ -112,10 +131,12 @@ var init = function() {
 	}
 
 	function printTopHeight(div) {
-		console.log('parent\'s parent top margin: ' + div.parent().parent().css('margin-top'));
-		console.log('scroll top: ' + $window.scrollTop());
-		console.log(div.attr('id') + ' top position is: ' + (div.parent().parent().css('margin-top').replace('px', '') - div.offset().top - $window.scrollTop()));
-		console.log('');
+		// console.log('parent\'s parent top margin: ' + div.parent().parent().css('margin-top'));
+		// console.log('scroll top: ' + $window.scrollTop());
+		// console.log(div.attr('id') + ' top position is: ' + (div.parent().parent().css('margin-top').replace('px', '') - div.offset().top - $window.scrollTop()));
+		// console.log('get top position function: ' + getTopPos(div));
+		// console.log('div offsetTop jquery: ' + div.offset().top);
+		// console.log('');
 	}
 
 	function isAtCenterHeight(div) {
@@ -123,9 +144,7 @@ var init = function() {
 	}
 
 	function getTopPos(el) {
-	    for (var topPos = 0;
-		el != null;
-		topPos += el.offsetTop, el = el.offsetParent);
+	    for (var topPos = 0; el != null; topPos += el.offsetTop, el = el.offsetParent);
 	    return topPos;
 	}
 
